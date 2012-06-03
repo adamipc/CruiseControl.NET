@@ -146,6 +146,7 @@
     <Compile Include="DefaultWebClient.cs" />
     <Compile Include="DefaultWebFunctions.cs" />
     <Compile Include="EncryptingConnection.cs" />
+    <Compile Include="ForceAuthorizationWebFunctions.cs" />
     <Compile Include="ICruiseServerClientFactory.cs" />
     <Compile Include="IWebClient.cs" />
     <Compile Include="IWebClientFactory.cs" />

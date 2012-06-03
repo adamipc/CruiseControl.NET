@@ -91,7 +91,7 @@ namespace ThoughtWorks.CruiseControl.Remote
                 // Retrieve the XML from the server
                 var url = GenerateUrl("XmlStatusReport.aspx");
                 var uri = new Uri(url);
-                webFunctions.SetCredentials(client, uri, false);
+                webFunctions.SetCredentials(client, uri);
                 string response;
                 try
                 {
@@ -103,7 +103,8 @@ namespace ThoughtWorks.CruiseControl.Remote
                     {
                         // Jenkins doesn't give a challenge for HTTP Authentication
                         // So we need to force an Authorization header
-                        webFunctions.SetCredentials(client, uri, true);
+                        var forceAuthorizationWebFunctions = new ForceAuthorizationWebFunctions();
+                        forceAuthorizationWebFunctions.SetCredentials(client, uri);
                         response = client.DownloadString(url);
                     }
                     else
@@ -206,7 +207,7 @@ namespace ThoughtWorks.CruiseControl.Remote
                 {
                     // Retrieve the XML from the server - 1.3 or later
                     var url = GenerateUrl("XmlServerReport.aspx");
-                    webFunctions.SetCredentials(client, new Uri(url), false);
+                    webFunctions.SetCredentials(client, new Uri(url));
                     response = client.DownloadString(url);
                 }
                 catch (Exception)
@@ -406,7 +407,7 @@ namespace ThoughtWorks.CruiseControl.Remote
             values.Add("serverName", TargetServer);
             try
             {
-                webFunctions.SetCredentials(client, new Uri(url), false);
+                webFunctions.SetCredentials(client, new Uri(url));
                 client.UploadValues(url, values);
             }
             catch (Exception error)

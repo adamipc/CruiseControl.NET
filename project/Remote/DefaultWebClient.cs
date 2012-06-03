@@ -55,7 +55,7 @@
         /// <returns>The response data.</returns>
         public byte[] UploadValues(Uri address, string method, NameValueCollection data)
         {
-            this.webFunctions.SetCredentials(this.innerClient, address, false);
+            this.webFunctions.SetCredentials(this.innerClient, address);
             return this.innerClient.UploadValues(address, method, data);
         }
 
@@ -70,7 +70,7 @@
         /// <param name="data">The data.</param>
         public void UploadValuesAsync(Uri address, string method, NameValueCollection data)
         {
-            this.webFunctions.SetCredentials(this.innerClient, address, false);
+            this.webFunctions.SetCredentials(this.innerClient, address);
             this.innerClient.UploadValuesAsync(address, method, data);
         }
         #endregion

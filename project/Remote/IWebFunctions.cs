@@ -3,6 +3,9 @@ using System.Net;
 
 namespace ThoughtWorks.CruiseControl.Remote
 {
+    /// <summary>
+    /// Common web functions
+    /// </summary>
     public interface IWebFunctions
     {
         /// <summary>
@@ -10,7 +13,6 @@ namespace ThoughtWorks.CruiseControl.Remote
         /// </summary>
         /// <param name="webClient">The <see cref="WebClient"/> to set credentials on.</param>
         /// <param name="address">The address to check for user info.</param>
-        /// <param name="forceAuthorization">Whether to force an Authorization header or allow WebClient credentials to handle it.</param>
-        void SetCredentials(WebClient webClient, Uri address, bool forceAuthorization);
+        void SetCredentials(WebClient webClient, Uri address);
     }
 }
